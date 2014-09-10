@@ -1,0 +1,39 @@
+"3.2 (created: 2011/06/03 11:51:34)
+
+" set mapleader=","
+
+nmap <Left> :bp<CR>
+nmap <Right> :bn<CR>
+
+" set gui=none,addons
+set guioptions=rs
+
+set complete=location
+
+" set jsdebugger=on
+
+set showtabline=always
+
+set defsearch=duckduckgo
+
+set titlestring="firefox"
+
+nmap <S-Left> :back<CR>
+nmap <S-Right> :forward<CR>
+
+" plugins
+" nmap <Leader>g :emenu Tools.Pixlr Grabber. Grab a defined area<CR>
+" nmap <Leader>f :emenu Tools.Web Developer.Firebug.Open Firebug in New Window<CR>
+" nmap <Leader>t :SB http://sonia.yaco.es/wiki/eperez?is_gadget=1<CR>
+" nmap <Leader>l :open http://google.com/search?sourceid=navclient&btnI=1&q=
+
+" colors
+" hi HintElem background-color: none  !important; color: none !important;
+
+" autocmd LocationChange google.com :normal! <C-z>
+
+set scrollsteps=1
+
+set scrolltime=25
+
+" vim: set ft=vimperator:
