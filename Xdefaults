@@ -1,0 +1,16 @@
+xterm*loginShell: false
+xterm*vt100*geometry: 160x32
+xterm*saveLines: 20000
+xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+xterm*foreground: rgb:05/05/05
+xterm*background: rgb:e8/e8/d8
+! Fonts and Encoding
+XTerm*utf8: True
+XTerm*locale: True
+XTerm*utf8Title: True
+XTerm*renderFont: True
+XTerm*preeditType: Root
+XTerm*xftAntialias: true
+XTerm*faceName: xft:Inconsolata-12
+!!
+XTerm*metaSendsEscape: true

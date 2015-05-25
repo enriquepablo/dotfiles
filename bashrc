@@ -14,6 +14,13 @@ export HISTCONTROL=ignoreboth
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000000
+HISTFILESIZE=2000000
+
 # set command line editing to vi-mode
 # set -o vi
 
@@ -55,6 +62,8 @@ esac
 # xmodmap -e "keycode  16 = 7 ccedilla 7 ccedilla braceleft seveneighths"
 # xmodmap -e "keycode  51 = slash Ccedilla slash Ccedilla braceright dead_breve"
 
+xrdb ~/.Xdefaults
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -63,11 +72,6 @@ esac
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
 fi
 
 # enable color support of ls and also add handy aliases
@@ -83,67 +87,9 @@ fi
 #alias la='ls -A'
 #alias l='ls -CF'
 
-# function to cd and activate a virtualenv in ~/virtualenvs
-
-venv () {
-    tn $1
-    echo "Activando ${1}"
-    cd
-    cd "virtualenvs/${1}"
-    source bin/activate
-}
-
-#zope () {
-#    if [ -f bin/$1 ]; then
-#        bin/$1 $2
-#    else
-#        echo "no script"
-#    fi
-#}
-
-#fgz () {
-#    venv $1
-#    bin/instance fg
-#}
-
-#ipz () {
-#    venv $1
-#    zope ipzope ""
-#}
-#
-#dbz () {
-#    venv $1
-#    zope instance debug
-#}
 if [ -f /etc/django_bash_completion ]; then
     . /etc/django_bash_completion
 fi
-
-
-if [ -f ~/venvs/default/bin/activate ]; then
-    . ~/venvs/default/bin/activate
-fi
-
-if [ -f ~/bin/venv ]; then
-    . ~/bin/venv
-fi
-
-tn ()
-{
-    if [ $1 ]; then
-        NAME=${1}
-    else
-        NAME=`kdialog --inputbox tabname tabname`
-    fi
-    PROMPT_COMMAND='echo -ne "\033]0;${NAME}\007"'
-}
-
-# abre: busca y abre en un gvim remoto
-#
-abre ()
-{ 
-    find ./ -name "$1" -exec gvim --remote {} +
-}
 
 if [ -f /etc/bash_completion.d/git ]; then
   source /etc/bash_completion.d/git
