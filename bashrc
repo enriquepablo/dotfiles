@@ -18,8 +18,17 @@ shopt -s checkwinsize
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000000
-HISTFILESIZE=2000000
+export HISTSIZE=1000000
+export HISTFILESIZE=2000000
+
+export EDITOR=vim
+
+export EDUID_SRC_PATH=/home/eperez/src/git
+
+export GREP_OPTIONS="-rIn --color=always"
+
+export PATH="/home/eperez/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:/home/eperez/bin:$PATH"
+
 
 # set command line editing to vi-mode
 # set -o vi
@@ -62,7 +71,7 @@ esac
 # xmodmap -e "keycode  16 = 7 ccedilla 7 ccedilla braceleft seveneighths"
 # xmodmap -e "keycode  51 = slash Ccedilla slash Ccedilla braceright dead_breve"
 
-xrdb ~/.Xdefaults
+# xrdb ~/.Xdefaults
 
 
 # Alias definitions.
@@ -91,8 +100,8 @@ if [ -f /etc/django_bash_completion ]; then
     . /etc/django_bash_completion
 fi
 
-if [ -f /etc/bash_completion.d/git ]; then
-  source /etc/bash_completion.d/git
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+  source /etc/bash_completion.d/git-prompt
 fi
 
 # [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
