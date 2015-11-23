@@ -1,0 +1,11 @@
+[user]
+	name = Enrique Pérez Arnaud
+	email = enrique@cazalla.net
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+[push]
+	default = simple
