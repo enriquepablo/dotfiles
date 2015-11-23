@@ -1,0 +1,49 @@
+#!/bin/bash
+# Set up an icon tray
+ 
+if [ -z "$(pgrep trayer)" ] ; then
+  trayer --monitor principal --edge top --align right --SetDockType true --SetPartialStrut true \
+  --expand true --width 5 --transparent true --alpha 0 --tint 0x9999bb --height 18 &
+fi
+
+if [ -x /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 ] ; then
+  if [ -z "$(pgrep polkit-gnome-authentication-agent-1)" ] ; then
+    /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+  fi
+fi
+ 
+if [ -x /usr/bin/nm-applet ] ; then
+  if [ -z "$(pgrep nm-applet)" ] ; then
+    nm-applet --sm-disable &
+  fi
+fi
+ 
+if [ -x /usr/bin/gnome-power-manager ] ; then
+  if [ -z "$(pgrep gnome-power-manager)" ] ; then
+    gnome-power-manager &
+  fi
+fi
+
+if [ -z "$(pgrep pidgin)" ] ; then
+  pidgin &
+fi
+
+if [ -z "$(pgrep roxterm)" ] ; then
+  roxterm &
+  arandr &
+fi
+
+if [ -z "$(pgrep thunar)" ] ; then
+  thunar --daemon &
+fi
+
+if [ -z "$(pgrep dropbox)" ] ; then
+  dropbox start
+fi
+ 
+if [ -x /usr/bin/volumeicon ] ; then
+  if [ -z "$(pgrep volumeicon)" ] ; then
+    sleep 3
+    volumeicon &
+  fi
+fi

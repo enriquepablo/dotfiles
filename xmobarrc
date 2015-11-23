@@ -1,0 +1,17 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
+       , bgColor = "lightgrey"
+       , fgColor = "#333333"
+       , position = TopW L 95
+       , lowerOnStart = True
+       , commands = [ Run Cpu ["-L","3","-H","50","--normal","#55aa88","--high","#aa8855"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run DynNetwork ["-L","0","-H","500",
+                                      "--normal","#55aa88","--high","#aa8855"] 10
+                    , Run Date "%a %b %_d %l:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %cpu% | %memory% * %swap% | %dynnetwork%    <fc=#ee9a00>%date%</fc>  "
+       }
